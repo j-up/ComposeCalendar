@@ -1,0 +1,123 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.kapt'
+    id 'kotlin-parcelize'
+    id "dagger.hilt.android.plugin"
+
+}
+
+android {
+    namespace 'com.jm.calendar'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.jm.calendar"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(path: ':domain')
+    implementation project(path: ':data')
+
+    // Activity
+    implementation "androidx.activity:activity-compose:$versions.activity"
+
+    // hilt
+    implementation "com.google.dagger:hilt-android:$versions.hilt"
+    implementation "androidx.hilt:hilt-navigation-compose:$versions.hiltVM"
+    implementation 'androidx.compose.material3:material3-android:1.2.0'
+    kapt("com.google.dagger:hilt-android-compiler:$versions.hilt")
+    kaptTest "com.google.dagger:hilt-android-compiler:$versions.hilt"
+
+    // ktx
+    implementation "androidx.fragment:fragment-ktx:$versions.activity"
+    implementation "androidx.activity:activity-ktx:$versions.fragment"
+    // Coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutines"
+
+    // Gson
+    implementation "com.google.code.gson:gson:$versions.gson"
+
+    // Serialization
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$versions.kotlinSerialization"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.viewModel"
+
+    // Lifecycles
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifeCycle"
+
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifeCycle"
+
+    // Navigation Component
+    implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation"
+    implementation "androidx.hilt:hilt-navigation-fragment:$versions.hiltNavigation"
+
+    // DataStore
+    implementation "androidx.datastore:datastore-preferences:$versions.dataStore"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$versions.glide"
+
+    // Compose
+    implementation "androidx.compose.ui:ui:$versions.compose"
+    implementation "androidx.compose.runtime:runtime:$versions.compose"
+    implementation "androidx.compose.runtime:runtime-livedata:$versions.compose"
+    implementation "androidx.compose.ui:ui-tooling-preview:$versions.compose"
+    implementation "androidx.compose.material:material:$versions.compose"
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:$versions.compose"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$versions.composeViewModel"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$versions.composeSystemUi"
+    implementation "androidx.navigation:navigation-compose:$versions.composeNavigation"
+
+    // Constraintlayout
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
+
+    implementation "io.coil-kt:coil-compose:$versions.coil"
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
