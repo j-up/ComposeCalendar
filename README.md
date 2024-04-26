@@ -2,11 +2,13 @@
 * iOS캘린더 앱을 컴포즈로 구현한 토이프로젝트입니다.
 
 ## 화면
-  ![주간일정](https://github.com/j-up/ComposeCalendar/assets/51228811/470833ac-5733-45b0-8556-3103cb54db8f)
-  
+  | ![주간일정](https://github.com/j-up/ComposeCalendar/assets/51228811/470833ac-5733-45b0-8556-3103cb54db8f) |
+  |-|
+
   주간 일정 클릭
 
-  ![달이동](https://github.com/j-up/ComposeCalendar/assets/51228811/13cae220-fe1f-4a06-ab19-4d7786b663e6)
+  | ![달이동](https://github.com/j-up/ComposeCalendar/assets/51228811/13cae220-fe1f-4a06-ab19-4d7786b663e6) |
+  |-|
   
   월(Month) 이동
 
